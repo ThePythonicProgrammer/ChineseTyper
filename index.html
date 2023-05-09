@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese Typing Test</title>
+    <link rel="stylesheet" href="materialize.min.css" />
+    <script defer src="materialize.min.js"></script>
+    <script defer src="script.js"></script>
+    <style>
+        body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+
+        main {
+            flex: 1 0 auto;
+    }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <div class="container">
+                <a href="#" class="brand-logo">Chinese Test</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- List of Words for Chinese Test -->
+    <div id="chineseList" style="display: none;">
+        <div id="chapter1">
+            <ul id="chapter1meta">
+                <p class="name">IC1 Greetings</p>
+                <p class="reqWPM">40</p>
+            </ul>
+            <ul id="chapter1trad">
+                <li>你</li>
+                <li>好</li>
+                <li>嗎</li>
+                <li>我</li>
+                <li>呢</li>
+                <li>很</li>
+                <li>也</li>
+                <li>請</li>
+                <li>問</li>
+                <li>貴</li>
+            </ul>
+            <ul id="chapter1simp">
+                <li>你</li>
+                <li>好</li>
+                <li>嗎</li>
+                <li>我</li>
+                <li>呢</li>
+                <li>很</li>
+                <li>也</li>
+                <li>请</li>
+                <li>问</li>
+                <li>贵</li>
+            </ul>
+            <ul id="chapter1pinyin">
+                <li>ni</li>
+                <li>hao</li>
+                <li>ma</li>
+                <li>wo</li>
+                <li>ne</li>
+                <li>hen</li>
+                <li>ye</li>
+                <li>qing</li>
+                <li>wen</li>
+                <li>gui</li>
+            </ul>
+        </div>
+        <div id="chapter2">
+            <ul id="chapter2meta">
+                <p class="name">IC2 Family</p>
+                <p class="reqWPM">35</p>
+            </ul>
+            <ul id="chapter2trad"></ul>
+            <ul id="chapter2simp"></ul>
+            <ul id="chapter2pinyin"></ul>
+        </div>
+    </div>
+
+    <main id="main">
+        <div id="start">
+            <div class="container">
+                <h2 class="center">Mr. Anderson's Typing Test</h2>
+                <p class="center">This is the offical typing test for Mr. Anderson's Chinese Class.</p>
+                
+                <br><br> 
+                
+                <h3 class="center">How to Use</h3>
+                <div class="row">
+                    <div class="col s12 m4">
+                        <h4 class="center">Select Test Chapters</h4>
+                        <p class="center">Choose the chapters you wish to test from the options below, then click the Start Test button!</p>
+                    </div>
+                    <div class="col s12 m4">
+                        <h4 class="center">Test</h4>
+                        <p class="center">Once you enter the test, start typing with a Chinese Keyboard. Upon pressing your first keystroke, the test will automatically begin!</p>
+                    </div>
+                    <div class="col s12 m4">
+                        <h4 class="center">Recieve Stats</h4>
+                        <p class="center">When you finish your test, you can look through your stats about your test. Double check which words you have trouble with and see how fast you were!</p>
+                    </div>
+                </div>
+               
+                <br><br>
+                <div id="selectorDiv"></div>
+                <br><br>
+                <div class="row center-align">
+                    <button class="btn-large waves-teal" onclick="switchScreen('test'); createTestListener();">Start Test!</button>
+                </div>
+
+            </div>
+        </div>
+        <div id="test">
+            <div class="container">
+                <h2 class="center">Testing</h2>
+                <p>Whenever you feel ready, begin typing in the input box below. The test will begin as soon as you start typing. The time left is displayed just above the words you have to type.</p>
+                <br><br>
+                <p id="timer">30</p>
+                <div id="testWords"></div>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="testInput" class="materialize-textarea"></textarea>
+                                <label for="testInput">Type Here!</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="stats">
+            <div class="container">
+                <h2 class="center">Stats</h2>
+                <p>This page displays the stats from your last test.
+                   Your CPM is the amount of characters you would type in a minute, minus the mistakes you made
+                </p>
+                <p>CPM: <span id="cpm"></span></p>
+                <p>Accuracy: <span id="acc"></span></p>
+                <p>Words to Work on:
+                    <div id="work"></div>
+                </p>
+
+                <p>Your Best Words
+                    <div id="best"></div>
+                </p>
+            </div>
+        </div>
+    </main>
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container">© 2023 ThePythonicProgrammer</div>
+        </div>
+    </footer>
+</body>
+</html>
